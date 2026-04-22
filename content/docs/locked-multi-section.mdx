@@ -1,0 +1,41 @@
+---
+title: Multi Section (Locked)
+description: Locking multi section disables interaction and locks child elements.
+---
+
+## Multi Section (Locked)
+
+Locking a multi section disables header interaction, prevents tab click switching, and locks lockable child elements in all tabs.
+
+### Lock-Oriented Example
+
+```lua
+local LockedMulti = MainTab:MultiSection({
+    Title = "Protected Profiles",
+    Desc = "Requires unlock",
+    Locked = true,
+    LockedTitle = "Unlock first",
+    Box = true,
+    Opened = true,
+})
+
+local Basic = LockedMulti:Tab({ Title = "Basic", Selected = true })
+Basic:Toggle({ Title = "Enabled", Value = true })
+
+local Advanced = LockedMulti:Tab({ Title = "Advanced" })
+Advanced:Slider({ Title = "Power", Value = { Min = 0, Max = 100, Default = 50 } })
+
+LockedMulti:Unlock()
+LockedMulti:SelectTab("Advanced")
+LockedMulti:Open(true)
+
+LockedMulti:Lock()
+LockedMulti:Close()
+```
+
+### Lock Notes
+
+1. `LockedTitle` is stored but currently has no built-in visual lock label for this container.
+2. Programmatic `SelectTab(...)` still works even when locked; click selection is blocked.
+```
+

@@ -1,0 +1,81 @@
+---
+title: Toggle Keybind
+description: Toggle control combined with assignable hotkey.
+---
+
+## Toggle Keybind
+
+`ToggleKeybind` combines a toggle/checkbox control with an assignable hotkey.
+
+### Create
+
+```lua
+local TK = MainTab:ToggleKeybind({
+    Title = "Kill Aura",
+    Desc = "Toggle with keybind",
+    Type = "Toggle",
+    Value = false,
+    Keybind = Enum.KeyCode.G,
+    CanChange = true,
+    Callback = function(state)
+        print("Kill Aura:", state)
+    end,
+})
+```
+
+### Config
+
+| Key | Type | Default |
+| --- | --- | --- |
+| `Title` | `string` | `"Toggle Keybind"` |
+| `Desc` | `string?` | `nil` |
+| `Locked` | `boolean` | `false` |
+| `LockedTitle` | `string?` | `nil` |
+| `Value` | `boolean` | `false` |
+| `Icon` | `string?` | `nil` |
+| `IconSize` | `number` | `23` |
+| `Type` | `"Toggle" \| "Checkbox"` | `"Toggle"` |
+| `Callback` | `function` | empty function |
+| `Keybind` / `Bind` / `Key` | `EnumItem \| string` | `"F"` |
+| `CanChange` | `boolean` | `true` |
+
+### Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `Lock` | `TK:Lock()` | Locks interaction |
+| `Unlock` | `TK:Unlock()` | Unlocks interaction |
+| `Set` | `TK:Set(value, isCallback, isAnim)` | Sets toggle value |
+| `SetKeybind` | `TK:SetKeybind(keyOrEnum)` | Sets activation key |
+| `SetTitle` | `TK:SetTitle(text)` | Updates visible title |
+| `SetDesc` | `TK:SetDesc(text)` | Updates visible description |
+| `Highlight` | `TK:Highlight()` | Brief highlight animation |
+
+### Full Example (All Toggle Keybind Methods)
+
+```lua
+local TK = MainTab:ToggleKeybind({
+    Title = "Kill Aura",
+    Desc = "Press G to toggle",
+    Type = "Checkbox",
+    Value = false,
+    Keybind = "G",
+    CanChange = true,
+    Callback = function(state)
+        print("Toggle state:", state)
+    end,
+})
+
+TK:Set(true, true, false)
+TK:Set(false, false, true)
+TK:SetKeybind("MouseLeft")
+
+TK:SetTitle("Kill Aura Key")
+TK:SetDesc("Now bound to left mouse")
+TK:Highlight()
+
+TK:Lock()
+task.wait(0.5)
+TK:Unlock()
+```
+

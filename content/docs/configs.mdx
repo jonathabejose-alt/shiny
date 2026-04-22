@@ -1,0 +1,29 @@
+---
+title: Configs
+description: Save and load configurations.
+---
+
+# Configs
+
+**Setup:**
+
+```lua
+local ConfigManager = Window.ConfigManager
+local myConfig = ConfigManager:CreateConfig("myConfig")
+
+Tab:Toggle({ 
+  Title="Toggle", 
+  Flag="ToggleElement", 
+  Callback=function() end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `Save()` | Save config |
+| `Load()` | Load config |
+| `Delete()` | Delete config |
+| `AllConfigs()` | List all configs |
+

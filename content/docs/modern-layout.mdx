@@ -1,0 +1,33 @@
+---
+title: ModernLayout
+description: Window-level style mode with tighter spacing and glass-style outlines.
+---
+
+## ModernLayout
+
+`ModernLayout` is a window-level style mode enabled at creation time.
+
+### Create
+
+```lua
+local ModernWindow = WindUI:CreateWindow({
+    Title = "Modern Window",
+    Folder = "WindUI-Modern",
+    ModernLayout = true,
+    ElementsRadius = 24,
+})
+```
+
+### What It Changes
+
+1. Uses a tighter default element padding (`10` instead of `13`).
+2. Uses larger default element corner radius (`23` instead of `12`).
+3. Uses compact tab spacing (`1` instead of `6`) for tab content.
+4. Uses glass-style outlines for several components (tabs, sections, multi sections, video).
+5. Recalculates element shapes for visual consistency.
+
+### Runtime
+
+There is no dedicated runtime `SetModernLayout(...)` method; choose this mode when creating the window.
+```
+

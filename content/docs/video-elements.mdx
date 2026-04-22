@@ -1,0 +1,77 @@
+---
+title: Video Elements
+description: Embed VideoFrame as UI element.
+---
+
+## Video Elements
+
+`Video` embeds a `VideoFrame` as a UI element.
+
+### Create
+
+```lua
+local Video = MainTab:Video({
+    Video = "1234567890",
+    Height = 220,
+    Looped = true,
+    Playing = false,
+    Volume = 0.5,
+    Visible = true,
+})
+```
+
+### Config
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `Video` | `string \| number` | `""` | Numeric string/number auto-converts to `rbxassetid://...` |
+| `Height` | `number` | `200` | Minimum `24` |
+| `Looped` | `boolean` | `false` | Loop playback |
+| `Playing` | `boolean` | `false` | Start playback immediately |
+| `Volume` | `number` | `0.5` | Clamped `0` to `10` |
+| `Visible` | `boolean` | `true` | Element visibility |
+| `Radius` | `number` | element radius | Rounded corners |
+| `Padding` | `number` | `5` | Inner padding around video |
+| `Title` | `string?` | `"Video"` | Stored metadata |
+| `Desc` | `string?` | `nil` | Stored metadata |
+
+### Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `Play` | `Video:Play()` | Starts playback |
+| `Pause` | `Video:Pause()` | Pauses playback |
+| `SetPlaying` | `Video:SetPlaying(isPlaying)` | True = play, else pause |
+| `SetVideo` | `Video:SetVideo(source)` | Updates video source |
+| `SetVolume` | `Video:SetVolume(volume)` | Updates clamped volume |
+| `SetLooped` | `Video:SetLooped(looped)` | Enables/disables looping |
+| `SetVisible` | `Video:SetVisible(visible)` | Toggles visibility |
+| `SetHeight` | `Video:SetHeight(height)` | Updates element height |
+| `Destroy` | `Video:Destroy()` | Destroys element |
+
+### Full Example (All Video Methods)
+
+```lua
+local Video = MainTab:Video({
+    Video = "1234567890",
+    Height = 210,
+    Looped = true,
+    Playing = false,
+    Volume = 0.4,
+    Visible = true,
+    Radius = 16,
+    Padding = 6,
+})
+
+Video:Play()
+task.wait(0.5)
+Video:Pause()
+
+Video:SetPlaying(true)
+Video:SetVideo("rbxassetid://1234567890")
+Video:SetVolume(1.2)
+Video:SetLooped(false)
+Video:SetVisible(true)
+Video:SetHeight(240)
+```
+

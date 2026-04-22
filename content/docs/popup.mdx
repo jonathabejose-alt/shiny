@@ -1,0 +1,21 @@
+---
+title: Popup
+description: Global popup notification.
+---
+
+# Popup
+
+**Creation:**
+
+```lua
+WindUI:Popup({ 
+  Title="Popup Title", 
+  Icon="info", 
+  Content="Content", 
+  Buttons={ 
+    {Title="Cancel", Callback=function() end, Variant="Tertiary"}, 
+    {Title="Continue", Icon="arrow-right", Callback=function() end, Variant="Primary"} 
+  } 
+})
+```
+

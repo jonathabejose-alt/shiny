@@ -1,0 +1,30 @@
+---
+title: Dialog
+description: Window dialog popup.
+---
+
+# Dialog
+
+**Creation:**
+
+```lua
+local Dialog = Window:Dialog({ 
+  Icon="bird", 
+  Title="Dialog Title", 
+  Content="Dialog content", 
+  Buttons={ 
+    {Title="Confirm", Callback=function() end}, 
+    {Title="Cancel", Callback=function() end} 
+  } 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `Show()` | Display dialog |
+| `Close()` | Close dialog |
+
+**Button options:** Title, Icon (optional), Variant (optional), Callback (optional)
+

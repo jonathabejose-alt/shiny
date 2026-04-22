@@ -1,0 +1,28 @@
+---
+title: Button
+description: Button element.
+---
+
+# Button
+
+**Creation:**
+
+```lua
+local Button = Tab:Button({ 
+  Title="Button", 
+  Desc="Test", 
+  Locked=false, 
+  Callback=function() end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Lock()` | Lock button |
+| `Unlock()` | Unlock button |
+| `Destroy()` | Remove button |
+

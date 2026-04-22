@@ -1,0 +1,32 @@
+---
+title: Slider
+description: Number slider control.
+---
+
+# Slider
+
+**Creation:**
+
+```lua
+local Slider = Tab:Slider({ 
+  Title="Slider", 
+  Desc="Description", 
+  Step=1, 
+  Value={Min=20,Max=120,Default=70}, 
+  Callback=function(value) end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Set(value)` | Set slider value |
+| `SetMax(max)` | Update max |
+| `SetMin(min)` | Update min |
+| `Lock()` | Lock slider |
+| `Unlock()` | Unlock slider |
+| `Destroy()` | Remove slider |
+

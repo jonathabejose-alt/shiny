@@ -1,0 +1,30 @@
+---
+title: Section
+description: Collapsible section container for elements.
+---
+
+# Section
+
+**Creation:**
+
+```lua
+local Section = Tab:Section({ 
+  Title="Section", 
+  Box=false, 
+  FontWeight="SemiBold", 
+  TextTransparency=0.05, 
+  TextXAlignment="Left", 
+  TextSize=17, 
+  Opened=true 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `Destroy()` | Remove section |
+
+Child elements available inside section: Button, Toggle, Slider, etc.
+

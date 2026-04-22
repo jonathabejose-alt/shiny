@@ -1,0 +1,37 @@
+---
+title: Key System
+description: Key system configuration for CreateWindow.
+---
+
+# Key System
+
+Defined inside CreateWindow config:
+
+```lua
+KeySystem = { 
+  Note="Your note here", 
+  API={ 
+    {Type="platoboost", ServiceId=1234, Secret="secret"}, 
+    {Type="pandadevelopment", ServiceId="id"} 
+  } 
+}
+```
+
+**Available services:**
+- PlatoBoost
+- Panda Development
+- Luarmor
+
+**Custom service example:**
+
+```lua
+WindUI.Services.myservice = { 
+  Name="My Service", 
+  Icon="droplet", 
+  Args={"ServiceId"}, 
+  New=function(ServiceId) 
+    -- implementation
+  end 
+}
+```
+

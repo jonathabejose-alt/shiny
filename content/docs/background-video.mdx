@@ -1,0 +1,48 @@
+---
+title: Background Video
+description: Window background video configuration and runtime methods.
+---
+
+## Background Video
+
+Background video is configured on `Window` and can be changed at runtime.
+
+### Create with Video Background
+
+```lua
+local Window = WindUI:CreateWindow({
+    Title = "Background Media",
+    Folder = "WindUI-BG",
+    BackgroundVideo = "1234567890",
+})
+```
+
+Accepted video formats:
+
+1. `number` (converted to `rbxassetid://...`)
+2. numeric string (`"1234567890"`)
+3. full `rbxassetid://...`
+4. `"video:<source>"`
+5. URL (`http/https`, with executor file API support recommended)
+
+### Runtime Methods
+
+| Method | Signature | Returns | Description |
+| --- | --- | --- | --- |
+| `SetBackgroundVideo` | `Window:SetBackgroundVideo(video)` | `boolean` | Switches to video background |
+| `SetBackgroundImage` | `Window:SetBackgroundImage(image)` | `boolean` | Switches to image background |
+| `SetBackgroundImageTransparency` | `Window:SetBackgroundImageTransparency(v)` | `nil` | Sets image transparency |
+| `SetBackgroundTransparency` | `Window:SetBackgroundTransparency(v)` | `nil` | Sets global window transparency state |
+
+### Full Example (Background Video Methods)
+
+```lua
+Window:SetBackgroundVideo("1234567890")
+Window:SetBackgroundVideo("video:rbxassetid://1234567890")
+
+Window:SetBackgroundImage("rbxassetid://987654321")
+Window:SetBackgroundImageTransparency(0.35)
+
+Window:SetBackgroundTransparency(0.2)
+```
+

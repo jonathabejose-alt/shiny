@@ -1,0 +1,36 @@
+---
+title: Theme
+description: Creating and using custom themes in WindUI.
+---
+
+## Creating a Theme
+
+```lua
+WindUI:AddTheme({
+    Name = "My Theme",
+    Accent = Color3.fromHex("#18181b"),
+    Background = Color3.fromHex("#101010"),
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa"),
+})
+```
+
+## Set Theme
+
+```lua
+WindUI:SetTheme("My Theme")
+```
+
+## Gradient Example
+
+```lua
+WindUI:Gradient({
+    ["0"] = { Color = Color3.fromHex("#1f1f23"), Transparency = 0 },
+    ["100"] = { Color = Color3.fromHex("#18181b"), Transparency = 0 },
+}, {
+    Rotation = 0,
+})
+```

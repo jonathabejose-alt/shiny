@@ -1,0 +1,64 @@
+---
+title: Divider
+description: Horizontal or vertical separators with optional title support.
+---
+
+## Divider
+
+`Divider` creates horizontal or vertical separators, with optional title support for horizontal mode.
+
+### Create
+
+```lua
+local Divider = MainTab:Divider({
+    Title = "Combat Settings",
+    TitleAlignment = "Center",
+})
+```
+
+### Config
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `Orientation` | `"Horizontal" \| "Vertical"` | dynamic | Defaults to `Vertical` in groups, otherwise `Horizontal` |
+| `Title` / `Text` | `string` | `""` | Horizontal title |
+| `Thickness` | `number` | `1` | Minimum `1` |
+| `Inset` | `number` | `7` | Frame inset |
+| `TitleSpacing` | `number` | `8` | Space around title |
+| `TitleAlignment` | `"Left" \| "Center" \| "Right"` | `"Center"` | Title side/alignment |
+| `Height` | `number` | auto | Horizontal frame height |
+| `Width` | `number` | auto | Vertical frame width |
+| `Size` | `UDim2` | auto | Overrides default size |
+| `Color` | `string \| Color3` | theme `"Divider"` | Divider line color |
+| `Transparency` | `number` | theme | Divider line transparency |
+| `TitleColor` | `string \| Color3` | theme `"DividerLabel"` | Title color |
+| `TitleTransparency` | `number` | theme | Title transparency |
+| `TitleSize` | `number` | `13` | Title text size |
+
+### Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `SetTitle` | `Divider:SetTitle(newTitle)` | Updates title text |
+| `SetThickness` | `Divider:SetThickness(px)` | Updates line thickness |
+| `SetTitleAlignment` | `Divider:SetTitleAlignment("Left" \| "Center" \| "Right")` | Updates title alignment |
+| `SetTitleSpacing` | `Divider:SetTitleSpacing(px)` | Updates title spacing |
+
+### Full Example (All Divider Methods)
+
+```lua
+local Divider = MainTab:Divider({
+    Title = "Aimbot",
+    TitleAlignment = "Center",
+    Thickness = 1,
+    TitleSpacing = 8,
+    Color = "Divider",
+    TitleColor = "DividerLabel",
+})
+
+Divider:SetTitle("Aimbot Controls")
+Divider:SetThickness(2)
+Divider:SetTitleAlignment("Left")
+Divider:SetTitleSpacing(14)
+```
+

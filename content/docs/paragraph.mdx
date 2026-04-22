@@ -1,0 +1,32 @@
+---
+title: Paragraph
+description: Text paragraph with optional media and buttons.
+---
+
+# Paragraph
+
+**Creation:**
+
+```lua
+local Paragraph = Tab:Paragraph({ 
+  Title="Paragraph", 
+  Desc="Description", 
+  Color="Red", 
+  Image="rbxassetid://id", 
+  ImageSize=30, 
+  Thumbnail="rbxassetid://id", 
+  ThumbnailSize=80, 
+  Buttons={{Icon="bird", Title="Button", Callback=function() end}} 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `SetImage(id)` | Set image asset |
+| `SetThumbnail(id)` | Set thumbnail asset |
+| `Destroy()` | Remove paragraph |
+

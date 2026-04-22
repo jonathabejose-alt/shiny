@@ -1,0 +1,29 @@
+---
+title: Localization
+description: Multi-language support system.
+---
+
+# Localization
+
+**Setup:**
+
+```lua
+WindUI:Localization({ 
+  Enabled=true, 
+  Prefix="loc:", 
+  DefaultLanguage="en", 
+  Translations={ 
+    ["en"]={["KEY"]="Value"}, 
+    ["ru"]={["KEY"]="Значение"} 
+  } 
+})
+```
+
+**Switch language:**
+
+```lua
+WindUI:SetLanguage("en")
+```
+
+**Usage:** Title=`loc:KEY`
+

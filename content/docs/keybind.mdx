@@ -1,0 +1,30 @@
+---
+title: Keybind
+description: Keybind assignment element.
+---
+
+# Keybind
+
+**Creation:**
+
+```lua
+local Keybind = Tab:Keybind({ 
+  Title="Keybind", 
+  Desc="Description", 
+  Value="G", 
+  Callback=function(value) 
+    Window:SetToggleKey(Enum.KeyCode[value]) 
+  end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Lock()` | Lock keybind |
+| `Unlock()` | Unlock keybind |
+| `Destroy()` | Remove keybind |
+

@@ -1,0 +1,24 @@
+---
+title: Code
+description: Code block element with copy.
+---
+
+# Code
+
+**Creation:**
+
+```lua
+local Code = Tab:Code({ 
+  Title="Code", 
+  Code=`print("Hello!")` 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetCode(code)` | Update code |
+| `Destroy()` | Remove code block |
+| `OnCopy(callback)` | Copy event |
+

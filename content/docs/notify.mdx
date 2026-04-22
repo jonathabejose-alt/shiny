@@ -1,0 +1,80 @@
+---
+title: Notify with Buttons
+description: Notification popup with optional action buttons.
+---
+
+## Notify with Buttons
+
+`WindUI:Notify(config)` creates a notification popup and returns a notification object.
+
+### Config
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `Title` | `string` | `"Notification"` | Notification title |
+| `Content` | `string?` | `nil` | Body text |
+| `Icon` | `string?` | `nil` | Optional icon |
+| `IconThemed` | `boolean?` | `nil` | Themed icon coloring |
+| `Background` | `string?` | `nil` | Image source |
+| `BackgroundImageTransparency` | `number?` | `0` | Background image transparency |
+| `Duration` | `number` | `5` | Auto-close seconds |
+| `CanClose` | `boolean` | `true` | Shows close button |
+| `Buttons` | `table[]` | `{}` | Action buttons |
+
+### Button Entry Config (`Buttons = {...}`)
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `Title` | `string` | required | Button text |
+| `Icon` | `string?` | `nil` | Optional icon |
+| `Variant` | `string?` | `nil` | Button variant |
+| `Callback` | `function?` | `nil` | Runs on click |
+| `CloseOnClick` | `boolean` | `true` | Auto-close behavior |
+
+### Notification Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `Close` | `Notification:Close()` | Closes and destroys notification |
+
+### Full Example (Notify + Buttons)
+
+```lua
+local n = WindUI:Notify({
+    Title = "Configuration Loaded",
+    Content = "Choose an action below.",
+    Icon = "bell",
+    IconThemed = true,
+    Background = "rbxassetid://0",
+    BackgroundImageTransparency = 0.75,
+    Duration = 12,
+    CanClose = true,
+    Buttons = {
+        {
+            Title = "Apply",
+            Icon = "check",
+            Variant = "Primary",
+            CloseOnClick = false,
+            Callback = function()
+                print("Apply clicked")
+            end,
+        },
+        {
+            Title = "Dismiss",
+            Icon = "x",
+            Variant = "Secondary",
+            CloseOnClick = true,
+            Callback = function()
+                print("Dismiss clicked")
+            end,
+        },
+    },
+})
+
+task.delay(10, function()
+    if n and not n.Closed then
+        n:Close()
+    end
+end)
+```
+

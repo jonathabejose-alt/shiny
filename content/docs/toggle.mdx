@@ -1,0 +1,31 @@
+---
+title: Toggle
+description: Toggle switch or checkbox.
+---
+
+# Toggle
+
+**Creation:**
+
+```lua
+local Toggle = Tab:Toggle({ 
+  Title="Toggle", 
+  Desc="Description", 
+  Icon="bird", 
+  Type="Checkbox", 
+  Value=false, 
+  Callback=function(value) end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Set(value)` | Set toggle value |
+| `Lock()` | Lock toggle |
+| `Unlock()` | Unlock toggle |
+| `Destroy()` | Remove toggle |
+

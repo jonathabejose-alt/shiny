@@ -1,0 +1,28 @@
+---
+title: Base Setup
+description: Base window and tab setup for all examples.
+---
+
+## Base Setup
+
+All examples below assume this base setup:
+
+```lua
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/jonathabejose-alt/Wind-UI-Boreal/refs/heads/main/WindUI%20Boreal"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "WindUI Docs Demo",
+    Author = "Shiny",
+    Folder = "WindUI-Docs",
+    Size = UDim2.fromOffset(620, 500),
+    Icon = "sparkles",
+    ModernLayout = true,
+    BottomDragBarEnabled = true,
+})
+
+local MainTab = Window:Tab({
+    Title = "Main",
+    Icon = "home",
+})
+```
+

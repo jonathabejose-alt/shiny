@@ -1,0 +1,30 @@
+---
+title: Colorpicker
+description: Color picker with transparency.
+---
+
+# Colorpicker
+
+**Creation:**
+
+```lua
+local Colorpicker = Tab:Colorpicker({ 
+  Title="Colorpicker", 
+  Desc="Description", 
+  Default=Color3.fromRGB(0,255,0), 
+  Transparency=0, 
+  Locked=false, 
+  Callback=function(color) end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Lock()` | Lock picker |
+| `Unlock()` | Unlock picker |
+| `Destroy()` | Remove picker |
+

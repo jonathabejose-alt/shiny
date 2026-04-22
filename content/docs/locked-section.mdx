@@ -1,0 +1,60 @@
+---
+title: Section (Locked)
+description: Locking section disables expand/collapse and locks child elements.
+---
+
+## Section (Locked)
+
+A locked section disables expand/collapse click and locks lockable child elements.
+
+### Section Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `SetIcon` | `Section:SetIcon(iconOrNil)` | Updates/removes icon |
+| `SetTitle` | `Section:SetTitle(title)` | Updates title |
+| `SetDesc` | `Section:SetDesc(descOrNil)` | Updates description |
+| `Lock` | `Section:Lock()` | Locks section + lockable children |
+| `Unlock` | `Section:Unlock()` | Unlocks section + lockable children |
+| `Open` | `Section:Open(isNotAnim)` | Opens (if expandable) |
+| `Close` | `Section:Close(isNotAnim)` | Closes (if expandable) |
+| `Destroy` | `Section:Destroy()` | Destroys section and child elements |
+
+Like tab containers, section containers also receive element constructors:
+`Paragraph`, `Button`, `ButtonKeybind`, `Toggle`, `ToggleKeybind`, `Slider`, `Keybind`, `Input`, `Dropdown`, `Code`, `Colorpicker`, `Section`, `MultiSection`, `Divider`, `Space`, `Image`, `Group`, `Video`.
+
+### Lock-Oriented Example (All Section Methods)
+
+```lua
+local Secure = MainTab:Section({
+    Title = "Secure Settings",
+    Desc = "Locked by default",
+    Icon = "lock",
+    Box = true,
+    BoxBorder = true,
+    Opened = true,
+    Locked = true,
+    LockedTitle = "Unlock to edit",
+})
+
+Secure:Toggle({
+    Title = "God Mode",
+    Value = false,
+})
+
+Secure:SetIcon("shield")
+Secure:SetTitle("Protected Settings")
+Secure:SetDesc("Unlock to change values")
+
+Secure:Unlock()
+Secure:Open(true)
+Secure:Close(false)
+
+Secure:Lock()
+```
+
+### Lock Notes
+
+1. `LockedTitle` is stored but currently has no built-in lock-label renderer in this section container.
+2. `Open`/`Close` only affect expandable sections (sections with child elements).
+

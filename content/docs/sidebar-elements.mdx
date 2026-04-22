@@ -1,0 +1,122 @@
+---
+title: Sidebar Elements
+description: APIs for creating controls in the left sidebar on the Window object.
+---
+
+## Sidebar Elements
+
+These APIs create controls in the left sidebar on the `Window` object.
+
+### Label APIs
+
+`Window:SideBarLabel(config)`  
+Aliases: `Window.SidebarLabel`, `Window.Label`
+
+Config:
+
+| Key | Type | Default |
+| --- | --- | --- |
+| `Title` / `Text` | `string` | `"Label"` |
+| `Icon` | `string?` | `nil` |
+| `Placeholder` | `boolean` | `false` |
+| `Radius` | `number?` | `nil` |
+| `Height` | `number` | `34` (min `18`) |
+| `Size` | `UDim2?` | `UDim2.new(1, -7, 0, Height)` |
+| `Visible` | `boolean` | `true` |
+| `LayoutOrder` | `number?` | `nil` |
+
+Return object methods:
+`SetTitle(newTitle)`, `SetVisible(visible)`, `Destroy()`.
+
+### Button APIs
+
+`Window:SideBarButton(config)`  
+Aliases: `Window.SidebarButton`, `Window.Button`
+
+Config:
+
+| Key | Type | Default |
+| --- | --- | --- |
+| `Title` / `Text` | `string` | `"Button"` |
+| `Icon` | `string?` | `nil` |
+| `Callback` | `function?` | `nil` |
+| `Variant` | `string` | `"Secondary"` |
+| `FullRounded` | `boolean?` | `nil` |
+| `Radius` | `number?` | `nil` |
+| `Height` | `number` | `34` (min `20`) |
+| `Size` | `UDim2?` | `UDim2.new(1, -7, 0, Height)` |
+| `Visible` | `boolean` | `true` |
+| `LayoutOrder` | `number?` | `nil` |
+
+Return object methods:
+`SetTitle(newTitle)`, `SetCallback(callback)`, `SetVisible(visible)`, `Destroy()`.
+
+### Space APIs
+
+`Window:SideBarSpace(config)`  
+Aliases: `Window.SidebarSpace`, `Window.Space`
+
+Config:
+
+| Key | Type | Default |
+| --- | --- | --- |
+| `Columns` | `number` | `1` |
+
+Return value: a `Frame` (`Space.ElementFrame`), not a method-rich object.
+
+### Divider APIs
+
+`Window:Divider(config)` creates a sidebar divider.  
+Aliases: `Window:SideBarDivider(config)`, `Window.SidebarDivider`.
+
+Config is the same as the `Divider` element config above.
+
+Return value: divider `Frame` only (for runtime method access, use `Tab:Divider(...)` instead).
+
+### Full Example (Sidebar Elements)
+
+```lua
+local sbLabel = Window:SideBarLabel({
+    Title = "Quick Actions",
+    Icon = "sparkles",
+})
+
+local sbButton = Window:SideBarButton({
+    Title = "Recenter",
+    Icon = "locate-fixed",
+    Variant = "Secondary",
+    Callback = function()
+        Window:SetToTheCenter()
+    end,
+})
+
+local sbSpaceFrame = Window:SideBarSpace({
+    Columns = 2,
+})
+
+local sbDividerFrame = Window:SideBarDivider({
+    Title = "Tools",
+    TitleAlignment = "Left",
+})
+
+sbLabel:SetTitle("Quick Tools")
+sbLabel:SetVisible(true)
+
+sbButton:SetTitle("Center Window")
+sbButton:SetCallback(function()
+    WindUI:Notify({
+        Title = "Window",
+        Content = "Centered",
+    })
+    Window:SetToTheCenter()
+end)
+sbButton:SetVisible(true)
+
+task.delay(20, function()
+    sbLabel:Destroy()
+    sbButton:Destroy()
+    sbSpaceFrame:Destroy()
+    sbDividerFrame:Destroy()
+end)
+```
+

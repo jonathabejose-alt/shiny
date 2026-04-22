@@ -1,0 +1,33 @@
+---
+title: Dropdown
+description: Dropdown selector with multi-select.
+---
+
+# Dropdown
+
+**Creation:**
+
+```lua
+local Dropdown = Tab:Dropdown({ 
+  Title="Dropdown", 
+  Desc="Description", 
+  Values={"A","B","C"}, 
+  Value={"A"}, 
+  Multi=true, 
+  AllowNone=true, 
+  Callback=function(value) end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Select(value)` | Select item |
+| `Refresh(values)` | Update values |
+| `Lock()` | Lock dropdown |
+| `Unlock()` | Unlock dropdown |
+| `Destroy()` | Remove dropdown |
+

@@ -1,0 +1,33 @@
+---
+title: Input
+description: Text input field.
+---
+
+# Input
+
+**Creation:**
+
+```lua
+local Input = Tab:Input({ 
+  Title="Input", 
+  Desc="Description", 
+  Value="Default", 
+  InputIcon="bird", 
+  Type="Input", 
+  Placeholder="Enter...", 
+  Callback=function(text) end 
+})
+```
+
+**Methods:**
+
+| Method | Description |
+|--------|-------------|
+| `SetTitle(title)` | Update title |
+| `SetDesc(desc)` | Update description |
+| `Set(value)` | Set value |
+| `SetPlaceholder(text)` | Update placeholder |
+| `Lock()` | Lock input |
+| `Unlock()` | Unlock input |
+| `Destroy()` | Remove input |
+

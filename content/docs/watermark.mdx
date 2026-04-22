@@ -1,0 +1,86 @@
+---
+title: Watermark
+description: Floating text label over window background.
+---
+
+## Watermark
+
+`Watermark` adds a floating text label over the window background.
+
+### Create with Watermark
+
+```lua
+local Window = WindUI:CreateWindow({
+    Title = "Watermark Demo",
+    Folder = "WindUI-Watermark",
+    Watermark = {
+        Enabled = true,
+        Text = " | v1.0.0",
+        Opacity = 0.45,
+        Position = "bottom-right",
+        Size = 14,
+        Padding = 12,
+        Offset = Vector2.new(0, 0),
+    },
+})
+```
+
+### Config (`Watermark = {...}` or `Window:Watermark({...})`)
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `Enabled` | `boolean` | `true` | Initial visibility |
+| `Text` | `string` | `"Watermark"` | Display text |
+| `Opacity` | `number` | `0.45` | Clamped `0` to `1` |
+| `Position` | `string \| UDim2` | `"bottom-right"` | Preset string or custom `UDim2` |
+| `Size` | `number` | `14` | Minimum `8` |
+| `Padding` | `number` | `12` | Used by preset positions |
+| `Offset` | `Vector2` | `Vector2.new(0, 0)` | Position offset |
+| `Color` | `Color3?` | themed text | Optional explicit text color |
+| `RichText` | `boolean` | `false` | Enables rich text tags |
+| `AnchorPoint` | `Vector2?` | `Vector2.new(0.5, 0.5)` | Used when `Position` is `UDim2` |
+
+Preset `Position` strings:
+`top-left`, `top-center`, `top-right`, `center-left`, `center`, `center-right`, `bottom-left`, `bottom-center`, `bottom-right`.
+
+### Runtime Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `Watermark` | `Window:Watermark(config)` | Creates/replaces watermark and returns object |
+| `CreateWatermark` | `Window:CreateWatermark(config)` | Alias of `Window:Watermark` |
+| `SetEnabled` | `Watermark:SetEnabled(v)` | Shows/hides watermark |
+| `SetText` | `Watermark:SetText(text)` | Updates watermark text |
+| `SetOpacity` | `Watermark:SetOpacity(opacity)` | Updates text opacity |
+| `SetPosition` | `Watermark:SetPosition(position)` | Sets preset position or custom `UDim2` |
+| `SetOffset` | `Watermark:SetOffset(offset)` | Updates `Vector2` offset |
+| `SetPadding` | `Watermark:SetPadding(px)` | Updates preset position padding |
+| `SetSize` | `Watermark:SetSize(px)` | Updates text size |
+| `Destroy` | `Watermark:Destroy()` | Removes watermark instance |
+
+### Full Example (All Watermark Methods)
+
+```lua
+local WM = Window:Watermark({
+    Text = "Shiny | Build 240",
+    Position = "top-right",
+    Opacity = 0.55,
+    Size = 15,
+    Padding = 14,
+    Offset = Vector2.new(-4, 2),
+    RichText = true,
+})
+
+WM:SetText("Shiny | <font transparency=\"0.2\">Build 241</font>")
+WM:SetOpacity(0.7)
+WM:SetPosition("bottom-left")
+WM:SetPosition(UDim2.new(0.5, 0, 0, 24))
+WM:SetOffset(Vector2.new(0, 0))
+WM:SetPadding(12)
+WM:SetSize(14)
+
+WM:SetEnabled(false)
+task.wait(0.25)
+WM:SetEnabled(true)
+```
+

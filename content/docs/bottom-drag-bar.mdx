@@ -1,0 +1,42 @@
+---
+title: BottomDragBarEnabled
+description: Bottom drag handle visibility and behavior.
+---
+
+## BottomDragBarEnabled
+
+Controls the bottom drag handle visibility/behavior on the window.
+
+### CreateWindow Options
+
+| Key | Type | Default | Notes |
+| --- | --- | --- | --- |
+| `BottomDragBarEnabled` | `boolean` | `true` | Main option |
+| `BottomDragEnabled` | `boolean` | `true` | Alias; same behavior |
+
+`BottomDragBarEnabled` is internally treated as:
+
+```lua
+not (Config.BottomDragBarEnabled == false or Config.BottomDragEnabled == false)
+```
+
+### Runtime Method
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `SetBottomDragBarEnabled` | `Window:SetBottomDragBarEnabled(v)` | Enables/disables bottom drag bar at runtime |
+
+### Example
+
+```lua
+local Window = WindUI:CreateWindow({
+    Title = "Bottom Drag Demo",
+    Folder = "WindUI-BottomDrag",
+    BottomDragBarEnabled = true,
+})
+
+Window:SetBottomDragBarEnabled(false)
+task.wait(0.5)
+Window:SetBottomDragBarEnabled(true)
+```
+

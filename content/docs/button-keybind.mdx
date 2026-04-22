@@ -1,0 +1,81 @@
+---
+title: Button Keybind
+description: Clickable row combined with assignable key trigger.
+---
+
+## Button Keybind
+
+`ButtonKeybind` combines a clickable row + assignable key trigger that runs a callback.
+
+### Create
+
+```lua
+local BK = MainTab:ButtonKeybind({
+    Title = "Quick Action",
+    Desc = "Click row or press key",
+    Icon = "mouse-pointer-click",
+    IconThemed = true,
+    Color = "Accent",
+    Justify = "Between",
+    IconAlign = "Right",
+    Value = Enum.KeyCode.F,
+    CanChange = true,
+    Locked = false,
+    Callback = function(trigger)
+        print("Action triggered by:", trigger)
+    end,
+})
+```
+
+### Config
+
+| Key | Type | Default |
+| --- | --- | --- |
+| `Title` | `string` | `"Button Keybind"` |
+| `Desc` | `string?` | `nil` |
+| `Icon` | `string` | `"mouse-pointer-click"` |
+| `IconThemed` | `boolean` | `false` |
+| `Color` | `string \| Color3?` | `nil` |
+| `Justify` | `string` | `"Between"` |
+| `IconAlign` | `"Left" \| "Right"` | `"Right"` |
+| `Locked` | `boolean` | `false` |
+| `LockedTitle` | `string?` | `nil` |
+| `Callback` | `function` | empty function |
+| `Value` | `EnumItem \| string` | `"F"` |
+| `CanChange` | `boolean` | `true` |
+| `Size` | `"Small" \| "Default" \| "Large"` | `"Default"` |
+
+### Methods
+
+| Method | Signature | Description |
+| --- | --- | --- |
+| `Lock` | `BK:Lock()` | Locks interaction |
+| `Unlock` | `BK:Unlock()` | Unlocks interaction |
+| `Set` | `BK:Set(keyOrEnum)` | Sets current trigger key |
+| `SetTitle` | `BK:SetTitle(text)` | Updates visible title |
+| `SetDesc` | `BK:SetDesc(text)` | Updates visible description |
+| `Highlight` | `BK:Highlight()` | Brief highlight animation |
+
+### Full Example (All Button Keybind Methods)
+
+```lua
+local BK = MainTab:ButtonKeybind({
+    Title = "Quick Action",
+    Desc = "Default key: F",
+    Value = "F",
+    CanChange = true,
+    Callback = function(trigger)
+        print("ButtonKeybind callback:", trigger or "MouseClick")
+    end,
+})
+
+BK:Set("MouseRight")
+BK:SetTitle("Quick Action Key")
+BK:SetDesc("Right mouse now triggers action")
+BK:Highlight()
+
+BK:Lock()
+task.wait(0.5)
+BK:Unlock()
+```
+
