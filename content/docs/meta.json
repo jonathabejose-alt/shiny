@@ -1,6 +1,7 @@
 {
   "title": "WindUI Shiny",
   "pages": [
+    "about",
     "---Getting Started---",
     "introduction",
     "load-windui",
