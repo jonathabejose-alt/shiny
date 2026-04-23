@@ -1,45 +1,37 @@
-# .
+<!--<h1 align="center">WindUI</h1> -->
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+<!--
+<picture>
+    <source srcset="docs/banner-dark.webp" media="(prefers-color-scheme: dark)">
+    <source srcset="docs/banner-light.webp" media="(prefers-color-scheme: light)">
+    <img src="docs/banner-light.webp" alt="WindUI Banner">
+</picture>-->
 
-Run development server:
+<img src="docs/WindUI – Themes.png" alt="WindUI Banner">
 
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
+> [!WARNING]
+> This WindUI was not inspired by, and the name has nothing to do with UI Frameworks
 
-Open http://localhost:3000 with your browser to see the result.
+> [!WARNING]
+> WindUI is currently in Beta.
+> This project is still under active development. Bugs, issues, and unstable features may occur. We’re constantly working on improvements, so please be patient and report any problems you encounter.
 
-## Explore
+## Credits
 
-In the project, you can see:
+#### Icons (https://github.com/Footagesus/Icons)
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
+- [Lucide-Icons](https://github.com/lucide-icons/lucide)
+- [Craft Icons](https://www.figma.com/community/file/1415718327120418204)
+- [Geist Icons](https://vercel.com/geist/icons)
+- [Solar Icons](https://icones.js.org/collection/solar)
+- [SF Symbols](https://sf-symbols-one.vercel.app/)
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+### Links
 
-### Fumadocs MDX
-
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
-
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
-
-## Learn More
-
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+- [Discord Server](https://discord.gg/ftgs-development-hub-1300692552005189632)
+- [Documentation](https://Footagesus.github.io/WindUI-Docs/)
+- [Installation](https://footagesus.github.io/WindUI-Docs/docs/installation)
+- [Example](/main_example.lua) (wip)
+    ```luau
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Footagesus/WindUI/refs/heads/main/main_example.lua'))()
+    ```
