@@ -17,7 +17,9 @@
 > This project is still under active development. Bugs, issues, and unstable features may occur. We’re constantly working on improvements, so please be patient and report any problems you encounter.
 
 ## Credits
-
+ ### Tze (me)
+### x7dJJ9vnFH23 (shiny dev)
+###  Footagesus (OWNER)
 #### Icons (https://github.com/Footagesus/Icons)
 
 - [Lucide-Icons](https://github.com/lucide-icons/lucide)
